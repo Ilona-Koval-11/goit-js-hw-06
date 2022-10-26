@@ -28,7 +28,7 @@ button {
   justify-items: center;
   flex-wrap: wrap;
   gap: 40px;
-  width: 100;
+  width: auto;
   
 }
 
