@@ -24,10 +24,12 @@ function getRandomHexColor() {
 }
 
 Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.*/
+
 const inputNumberRef = document.querySelector('input');
 const createButton = document.querySelector('[data-create]');
 const destroyButton = document.querySelector('[data-destroy]');
 const boxesContainer = document.querySelector('#boxes');
+const boxesCreated =[];
 
 inputNumberRef.addEventListener('input', getCurrentInputValue);
 createButton.addEventListener('click', createBoxes);
@@ -46,9 +48,12 @@ function createBoxes(amount){
     box.style.height = `${30 + 10 * i} px`;
     box.style.backgroundColor = `${getRandomHexColor ()}`;
     box.style.marginTop = '20px';
-    boxesContainer.appendChild(box);
-  }
-}
+    boxesCreated.push(box);
+    
+  };
+  boxesContainer.append(...boxesCreated);
+ };
+
 
 destroyButton.addEventListener('click', destroyAllBoxes);
 function destroyAllBoxes() {
@@ -63,42 +68,3 @@ function getRandomHexColor() {
   .padStart(6, '0')}`;
 }
 
-/*const inputNumberRef = document.querySelector('input');
-const createButton = document.querySelector('[data-create]');
-const destroyButton = document.querySelector('[data-destroy]');
-const boxesContainer = document.querySelector('#boxes');
-
-inputNumberRef.addEventListener('input', getCurrentInputValue);
-createButton.addEventListener('click', createBoxes);
-
-function getCurrentInputValue(event){
-  return event.currentTarget.value;
-}
-
-function createBoxes(amount){
-  boxesContainer.innerHTML = '';
-  amount = Number(inputNumberRef.value);
-
-  for (let i = 0; i < inputNumberRef.value; i += 1){
-    const box = document.createElement('div');
-    box.style.width = `${30 + 10 * i} px`;
-    box.style.height = `${30 + 10 * i} px`;
-    box.style.backgroundColor = `${getRandomHexColor ()}`;
-    box.style.marginTop = '20px';
-    boxesContainer.appendChild(box);
-  }
-}
-
-destroyButton.addEventListener('click', destroyAllBoxes);
-function destroyAllBoxes() {
-  boxesContainer.innerHTML = '';
-  inputNumberRef.value = '';
-}
-
-
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-  .padStart(6, '0')}`;
-}
-*/
