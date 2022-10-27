@@ -24,7 +24,7 @@ const images = [
 
 
 
-/*const gallery = document.querySelector('.gallery');*/
+
 const galleryEl =document.querySelector('.gallery');
 const images = [
   {
@@ -40,18 +40,23 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-/*const markup = images
-.map( img => `<li class = "galary__item">${img.url}  ${img.alt}></li>`
-)
-.join('');
-gallery.insertAdjacentHTML("afterbegin", markup);
-gallery.getElementsByClassName.display = 'flex';
-console.log(gallery);*/
 
-images.forEach(image =>{
+let markup;
+images.forEach(img =>{
+  markup = images
+  .map(
+    img => 
+    `<li class = "gallery__item" ><img class = "gallery__img" src = "${img.url}" alt = "${img.alt}" ></li>`
+  )
+  .join('');
+});
+galleryEl.insertAdjacentHTML('beforeend', markup);
+galleryEl.style.display = "flex";
+
+/*images.forEach(image =>{
   let urlEl = image.url;
   let altEl = image.alt;
   galleryEl.insertAdjacentHTML('beforeend', `<li class = "image" ><img src = ${urlEl} alt = ${altEl} ></li>`)
 })
-galleryEl.style.display = "flex";
+galleryEl.style.display = "flex";*/
 
