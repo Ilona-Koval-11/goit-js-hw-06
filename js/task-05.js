@@ -4,7 +4,7 @@
 <input type="text" id="name-input" placeholder="Please enter your name" />
 <h1>Hello, <span id="name-output">Anonymous</span>!</h1>*/
 
-const nameInputEl = document.querySelector("#name-input");
+/*const nameInputEl = document.querySelector("#name-input");
 const textOutputEl = document.querySelector("#name-output");
 
 function checkTextArea(event){
@@ -14,4 +14,13 @@ function checkTextArea(event){
        textOutputEl.textContent = event.currentTarget.value; 
     }
 }
+nameInputEl.addEventListener("input",checkTextArea);*/
+
+
+const nameInputEl = document.querySelector("#name-input");
+const textOutputEl = document.querySelector("#name-output");
+function checkTextArea(event){
+    textOutputEl.textContent = event.currentTarget.value ||(textOutputEl.textContent ="Anonymous" );
+    
+    }
 nameInputEl.addEventListener("input",checkTextArea);
